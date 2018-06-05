@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 <div class="row">
 	<div class="container">
@@ -9,39 +9,78 @@
 			  	</div>
 			  </div>
 			  <div class="panel-body">
-			  	<form action="{{ route('member.store') }}" method="post" >
+			  	<form action="{{ route('lowongan.store') }}" method="post" >
 			  		{{ csrf_field() }}
-			  		<div class="form-group {{ $errors->has('foto') ? ' has-error' : '' }}">
-			  			<label class="control-label">Foto</label>	
-			  			<input type="img" name="foto" class="form-control"  required>
-			  			@if ($errors->has('foto'))
+			  		
+			  		<div class="form-group {{ $errors->has('nama_low') ? ' has-error' : '' }}">
+			  			<label class="control-label">nama_lowongan</label>	
+			  			<input type="text" name="nama_low" class="form-control"  required>
+
+			  			@if ($errors->has('nama_low'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('foto') }}</strong>
+                                <strong>{{ $errors->first('nama_low') }}</strong>
                             </span>
                         @endif
 			  		</div>
 
-			  		<div class="form-group {{ $errors->has('alamat') ? ' has-error' : '' }}">
-			  			<label class="control-label">Alamat</label>	
-			  			<input type="text" name="alamat" class="form-control"  required>
 
-			  			@if ($errors->has('alamat'))
+			  		<div class="form-group {{ $errors->has('tgl_mulai') ? ' has-error' : '' }}">
+			  			<label class="control-label">tgl_mulai</label>	
+			  			<input type="date" name="tgl_mulai" class="form-control"  required>
+
+			  			@if ($errors->has('tgl_mulai'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('alamat') }}</strong>
+                                <strong>{{ $errors->first('tgl_mulai') }}</strong>
                             </span>
                         @endif
 			  		</div>
 
-			  		<div class="form-group {{ $errors->has('user_id') ? ' has-error' : '' }}">
-			  			<label class="control-label">Email</label>	
-			  			<select name="user_id" class="form-control">
+
+			  		<div class="form-group {{ $errors->has('lokasi') ? ' has-error' : '' }}">
+			  			<label class="control-label">lokasi</label>	
+			  			<input type="text" name="lokasi" class="form-control"  required>
+
+			  			@if ($errors->has('lokasi'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('lokasi') }}</strong>
+                            </span>
+                        @endif
+			  		</div>
+			  		<div class="form-group {{ $errors->has('gaji') ? ' has-error' : '' }}">
+			  			<label class="control-label">gaji</label>	
+			  			<input type="number" name="gaji" class="form-control"  required>
+
+			  			@if ($errors->has('gaji'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('gaji') }}</strong>
+                            </span>
+                        @endif
+			  		</div>
+
+
+
+			  		<div class="form-group {{ $errors->has('deskripsi_iklan') ? ' has-error' : '' }}">
+			  			<label class="control-label">deskripsi_iklan</label>	
+			  			<input type="text" name="deskripsi_iklan" class="form-control"  required>
+
+			  			@if ($errors->has('deskripsi_iklan'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('deskripsi_iklan') }}</strong>
+                            </span>
+                        @endif
+			  		</div>
+
+
+			  		<div class="form-group {{ $errors->has('pers_id') ? ' has-error' : '' }}">
+			  			<label class="control-label">Deskripsi</label>	
+			  			<select name="pers_id" class="form-control">
 			  				@foreach($p as $data)
-			  				<option value="{{ $data->id }}">{{ $data->email }}</option>
+			  				<option value="{{ $data->id }}">{{ $data->deskripsi }}</option>
 			  				@endforeach
 			  			</select>
-			  			@if ($errors->has('user_id'))
+			  			@if ($errors->has('pers_id'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('user_id') }}</strong>
+                                <strong>{{ $errors->first('pers_id') }}</strong>
                             </span>
                         @endif
 			  		</div>

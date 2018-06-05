@@ -12,34 +12,29 @@
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="index.html">Dashboard 1</a>
+                                    <a href="{{url('/home')}}">Home</a>
                                 </li>
-                                <li>
-                                    <a href="index2.html">Dashboard 2</a>
-                                </li>
-                                <li>
-                                    <a href="index3.html">Dashboard 3</a>
-                                </li>
-                                <li>
-                                    <a href="index4.html">Dashboard 4</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Charts</a>
+                            <a href="{{route('user.index')}}">
+                                <i class="fas fa-chart-bar"></i><font size="2" color="black" face="lucida handwriting"> User </a>
                         </li>
                         <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Tables</a>
+                            <a href="{{ route('member.index')}}">
+                                <i class="fas fa-chart-bar"></i><font size="2" color="black" face="lucida handwriting"> Member </a>
+                        </li>
+                            <a href="{{route('perusahaan.index')}}">
+                                <i class="fas fa-chart-bar"></i><font size="2" color="black" face="lucida handwriting"> Perusahaan </a>
                         </li>
                         <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>Forms</a>
+                           <a href="{{route('lowongan.index')}}">
+                                <i class="fas fa-chart-bar"></i><font size="2" color="black" face="lucida handwriting"> Lowongan </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fas fa-calendar-alt"></i>Calendar</a>
+                           <a href="{{route('lamaran.index')}}">
+                                <i class="fas fa-chart-bar"></i><font size="2" color="black" face="lucida handwriting"> Lowongan </a>
                         </li>
                         <li>
                             <a href="map.html">

@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+
+
 class RegisterController extends Controller
 {
     /*
@@ -65,7 +67,10 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' => Has::make($data['password']),
         ]);
+        $memberRole = Role::where('name'.'member')->first();
+        $user->attachRole($memberRole);
+        return $user;
     }
 }

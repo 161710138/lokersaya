@@ -41,6 +41,7 @@
                         <li><a href="{{ route('member.index') }}">Member</a></li>
                         <li><a href="{{ route('perusahaan.index') }}">Perusahaan</a></li>
                           <li><a href="{{ route('lowongan.index') }}">Lowongan</a></li>
+                          <li><a href="{{ route('lamaran.index') }}">Lamaran</a></li>
                         @endguest
                     </ul>
 

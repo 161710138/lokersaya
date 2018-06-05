@@ -10,9 +10,7 @@ class Lowongan extends Model
     public $timestamps = true;
 
     public function Perusahaan(){
-        return $this->belongstoMany('App\Perusahaan','pers_id');
-    }
-    public function Lamaran(){
-        return $this->HasOne('App\Lamaran','low_id');
+        return $this->belongsTo('App\Perusahaan','pers_id');
+  
     }
 }

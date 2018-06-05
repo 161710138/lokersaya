@@ -26,7 +26,7 @@ class LowonganController extends Controller
     public function create()
     {
           $p = Perusahaan::all();
-        return view('perusahaan.create',compact('p'));
+        return view('lowongan.create',compact('p'));
     }
 
     /**
@@ -38,7 +38,7 @@ class LowonganController extends Controller
     public function store(Request $request)
     {
          $this->validate($request,[
-            'nama_lowongan' => 'required|',
+            'nama_low' => 'required|',
             'tgl_mulai' => 'required|',
             'lokasi' => 'required|',
             'gaji' => 'required|',
@@ -46,7 +46,7 @@ class LowonganController extends Controller
             'pers_id' => 'required'
         ]);
         $q = new Lowongan;
-        $q->nama_lowongan = $request->nama_lowongan;
+        $q->nama_low = $request->nama_low;
         $q->tgl_mulai = $request->tgl_mulai;
         $q->lokasi = $request->lokasi;
         $q->gaji = $request->gaji;
@@ -55,7 +55,7 @@ class LowonganController extends Controller
         $q->save();
         Session::flash("flash_notification", [
         "level"=>"success",
-        "message"=>"Berhasil menyimpan <b>$k->email</b>"
+        "message"=>"Berhasil menyimpan <b>$q->deskripsi</b>"
         ]);
         return redirect()->route('lowongan.index');
 
@@ -84,7 +84,7 @@ class LowonganController extends Controller
         $q = Lowongan::findOrFail($id);
         $p = Perusahaan::all();
         $selectedp = Lowongan::findOrFail($id)->low_id;
-        return view('member.edit',compact('p','q','selectedp'));
+        return view('lowongan.edit',compact('p','q','selectedp'));
     }
 
     /**
@@ -96,15 +96,15 @@ class LowonganController extends Controller
      */
     public function update(Request $request, $id)
     {$this->validate($request,[
-            'nama_lowongan' => 'required|',
+            'nama_low' => 'required|',
             'tgl_mulai' => 'required|',
             'lokasi' => 'required|',
             'gaji' => 'required|',
             'deskripsi_iklan' => 'required|',
             'pers_id' => 'required'
         ]);
-         $q = Lowongan::findOrFail($id);
-        $q->nama_lowongan = $request->nama_lowongan;
+        $q = Lowongan::findOrFail($id);
+        $q->nama_low = $request->nama_low;
         $q->tgl_mulai = $request->tgl_mulai;
         $q->lokasi = $request->lokasi;
         $q->gaji = $request->gaji;
@@ -113,7 +113,7 @@ class LowonganController extends Controller
         $q->save();
         Session::flash("flash_notification", [
         "level"=>"success",
-        "message"=>"Berhasil menyimpan <b>$k->email</b>"
+        "message"=>"Berhasil menyimpan <b>$q->nama_low</b>"
         ]);
         return redirect()->route('lowongan.index');
 

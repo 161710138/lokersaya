@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 
 	<div class="row">
@@ -20,7 +20,7 @@
 					  <th>Lokasi</th>
 					  <th>Gaji</th>
 					  <th>Deskripsi Iklan</th>
-					  <th>Perusahaan</th>
+					  <th>Deskripsi Perusahaan</th>
 					  <th colspan="3">Action</th>
 			  		</tr>
 				  	</thead>
@@ -30,12 +30,12 @@
 				  		@foreach($q as $data)
 				  	  <tr>
 				    	<td>{{ $no++ }}</td>
-				    	<td>{{ $data->nama_lowongan }}</td>
+				    	<td>{{ $data->nama_low }}</td>
 				    	<td>{{ $data->tgl_mulai }}</td>
 				    	<td>{{ $data->lokasi }}</td>
 				    	<td>{{ $data->gaji }}</td>
 				    	<td>{{ $data->deskripsi_iklan }}</td>
-				    	<td><p>{{ $data->Perusahaan->per_id }}</p></td>
+				    	<td><p>{{ $data->Perusahaan->deskripsi }}</p></td>
 				    	
            
 <td>
